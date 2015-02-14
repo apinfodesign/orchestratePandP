@@ -11,43 +11,43 @@ var content;
 var theBook;
  
 
-////this works for reading files and writing to database
+//this works for reading files and writing to database
 
 
-// fs.readdir('PandPmaster', function (err, files){
-// 	console.log("first things first");
-// 	if (err) throw err;
-//  	console.log("files are" + files);	 
+fs.readdir('PandPmaster', function (err, files){
+	console.log("first things first");
+	if (err) throw err;
+ 	console.log("files are" + files);	 
 
-//  	files.forEach(function(file, index){
-// 		fs.readFile("PandPmaster/"+ file, {encoding: 'utf8'}, function read(err, data) {
-//     	if (err) throw err;
-//      	console.log(data);
-//      	//theBook.push(data);
+ 	files.forEach(function(file, index){
+		fs.readFile("PandPmaster/"+ file, {encoding: 'utf8'}, function read(err, data) {
+    	if (err) throw err;
+     	console.log(data);
+     	//theBook.push(data);
 
      		
-// 	   //  	db.put('PandPremote', file, {
-// 		  // 		"chapterText": data,
-// 		  // 		"chapterNumber": index
-// 	   // 			 })
-// 				// .then(function (res) {
-// 	  	// 		console.log(res.statusCode);
-// 				// })
-// 				// .fail(function (err) {});
+	   //  	db.put('PandPremote', file, {
+		  // 		"chapterText": data,
+		  // 		"chapterNumber": index
+	   // 			 })
+				// .then(function (res) {
+	  	// 		console.log(res.statusCode);
+				// })
+				// .fail(function (err) {});
 
-// 		});
-//  	})
-// });
+		});
+ 	})
+});
 
 
-db.search('PandPremote', 'chapterText: "nerves" ')
+db.search('PandPremote', 'value.chapterText: "nerves" ')
 .then(function (result) {
   
   var content  = JSON.stringify(result.body);
   
   console.log('hello');
 
-  console.log(content.match(/nerves/).size)
+  console.log( content.match( /nerves/ ))
 })
 
 .fail(function (err) {});
