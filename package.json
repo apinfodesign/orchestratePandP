@@ -1,0 +1,15 @@
+{
+  "name": "nodejsPlay",
+  "version": "1.0.0",
+  "description": "learning to work with orchestrate.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.11.2",
+    "orchestrate": "^0.4.0"
+  }
+}
