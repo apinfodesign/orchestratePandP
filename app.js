@@ -6,13 +6,13 @@ var db = oio("df370b41-6b09-4789-ba8f-375940e84fe4");
 
 console.log("Pride and Prejudice");
 
-  
 var content;
 var theBook;
  
 
 //this works for reading files and writing to database
-// fs.readdir('PandPmaster', function (err, files){
+
+//  fs.readdir('PandPmaster', function (err, files){
 // 	console.log("first things first");
 // 	if (err) throw err;
 //  	console.log("files are" + files);	 
@@ -21,7 +21,6 @@ var theBook;
 // 		fs.readFile("PandPmaster/"+ file, {encoding: 'utf8'}, function read(err, data) {
 //     	if (err) throw err;
 //      	console.log(data);
-
      	
 //      	//theBook.push(data);
 
@@ -35,22 +34,47 @@ var theBook;
 // 	  	// 		console.log(res.statusCode);
 // 				// })
 // 				// .fail(function (err) {});
-
 // 		});
 //  	})
 // });
 
+// db.search ('collection','query').......
 
-db.search('PandPremote', 'value.chapterText: "Chapter 58" ')
+db.search('PandPremote', 'value.chapterText: "nerves" ')
 .then(function (result) {
-  
-  var content  = JSON.stringify(result.body);
 
-  console.log(content.length + " is the length");
-  
-  console.log('hello.....................');
+	var content  = JSON.stringify(result.body);
+	
+  	console.log(content.length + " is the length of content");
+	console.log( content + " is the content");
+ 	console.log('hello.....................');
 
-  console.log( content.match( /perhaps/ ));
+//How to read the returned result object from search
+var count = result.body.count;
+var totalCount = result.body.total_count;
+var results = result.body.results;
+var resultsArray = result.body.results[0];
+var resultsArrayPath = result.body.results[0].path.collection;
+var resultsArrayPath = result.body.results[0].path.key;
+var resultsArrayPath = result.body.results[0].path.ref;
+
+
+console.log("**** results below*****");
+
+console.log(count + " is count ");
+console.log(totalCount + " is total_count");
+console.log(results +" is results" );
+console.log(resultsArray +" is resultsArray" );
+console.log(resultsArrayPath +" is resultsArrayPath" );
+console.log(resultsArrayPathCollection +" is resultsArrayPathCollection" );
+console.log(resultsArrayPathKey +" is resultsArrayPathKey" );
+console.log(resultsArrayPathRef +" is resultsArrayPathRef" );
+
+
+
+console.log("**** results above *****");
+
+
 })
 
 .fail(function (err) {});
