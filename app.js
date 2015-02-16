@@ -54,10 +54,10 @@ var count = result.body.count;
 var totalCount = result.body.total_count;
 var results = result.body.results;
 var resultsArray = result.body.results[0];
-var resultsArrayPath = result.body.results[0].path.collection;
-var resultsArrayPath = result.body.results[0].path.key;
-var resultsArrayPath = result.body.results[0].path.ref;
-
+var resultsArrayPath = result.body.results[0].path;
+var resultsArrayPathCollection = result.body.results[0].path.collection;
+var resultsArrayPathKey = result.body.results[0].path.key;
+var resultsArrayPathRef = result.body.results[0].path.ref;
 
 console.log("**** results below*****");
 
@@ -66,10 +66,9 @@ console.log(totalCount + " is total_count");
 console.log(results +" is results" );
 console.log(resultsArray +" is resultsArray" );
 console.log(resultsArrayPath +" is resultsArrayPath" );
-console.log(resultsArrayPathCollection +" is resultsArrayPathCollection" );
-console.log(resultsArrayPathKey +" is resultsArrayPathKey" );
-console.log(resultsArrayPathRef +" is resultsArrayPathRef" );
-
+console.log(resultsArrayPathCollection + " is resultsArrayPathCollection" );
+console.log(resultsArrayPathKey + " is resultsArrayPathKey" );
+console.log(resultsArrayPathRef + " is resultsArrayPathRef" );
 
 
 console.log("**** results above *****");
