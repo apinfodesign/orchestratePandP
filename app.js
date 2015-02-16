@@ -59,7 +59,9 @@ var resultsArrayPathCollection = result.body.results[0].path.collection;
 var resultsArrayPathKey = result.body.results[0].path.key;
 var resultsArrayPathRef = result.body.results[0].path.ref;
 
-console.log("**** results below*****");
+var resultsArrayScore =   result.body.results[0].score;
+
+console.log("**** results below *****");
 
 console.log(count + " is count ");
 console.log(totalCount + " is total_count");
@@ -69,9 +71,49 @@ console.log(resultsArrayPath +" is resultsArrayPath" );
 console.log(resultsArrayPathCollection + " is resultsArrayPathCollection" );
 console.log(resultsArrayPathKey + " is resultsArrayPathKey" );
 console.log(resultsArrayPathRef + " is resultsArrayPathRef" );
-
+console.log(resultsArrayScore + " is resultsArrayScore" );
 
 console.log("**** results above *****");
+
+console.log("----------");
+
+
+console.log( result.body.results[0].path.key + " ...0 ");
+console.log( result.body.results[0].score + " ...score ");
+console.log( result.body.results[0].value.chapterText.length 
+	+ " ...content ");
+
+console.log("----------");
+
+console.log( result.body.results[1].path.key + " ...1 ");
+console.log( result.body.results[1].score + " ...score ");
+console.log( result.body.results[1].value.chapterText.length 
+	+ " ...content ");
+
+
+console.log("----------");
+
+console.log( result.body.results[2].path.key + " ...2 ");
+console.log( result.body.results[2].score + " ...score ");
+console.log( result.body.results[2].value.chapterText.length 
+	+ " ...content ");
+
+console.log("----------");
+
+console.log( result.body.results[3].path.key + " ...3 ");
+console.log( result.body.results[3].score + " ...score ");
+console.log( result.body.results[3].value.chapterText.length 
+	+ " ...content ");
+
+console.log("----------");
+
+
+results.forEach(function(index){
+	console.log("forEach loop" + index);
+	console.log( result.body.results[index].path.key + " index is " + index);
+});
+
+
 
 
 })
